@@ -1,0 +1,41 @@
+
+
+            <header class="header">
+                <nav class="navbar navbar-expand-sm navbar-light  justify-content-around opacity">
+                    <a class="navbar-brand" href="/">
+                        <img src="{{ asset('bg_1.jpg' ) }}"
+                                width="50"
+                                height="50"
+                                alt=""
+                        >
+                      
+                    </a>
+                    <h1 class="d-inline me-3">{{ title }}</h1>  
+                    <ul class="navbar-nav">
+                        {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ path('app_logout') }}">
+                                    Log out
+                                </a>
+                            </li>
+                        {% else %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ path('app_login') }}">
+                                    Log in
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ path('app_register') }}">
+                                    Register
+                                </a>
+                            </li>
+                        {% endif %}
+                        {# <li class="nav-item">
+                            <a class="nav-link" href="{{ path('app_cart') }}">
+                                Shopping Cart ({{ count_cart_items() }})
+                            </a>
+                        </li> #}
+                    </ul>
+                </nav>
+            </header>
+     

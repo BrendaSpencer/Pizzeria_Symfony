@@ -101,7 +101,7 @@ class Pizza
     public function getImageUrl(int $width): string
     {
         return sprintf(
-            'https://picsum.photos/id/%d/%d',
+            'images/Pizza_2.jpg',
             ($this->getId() + 50) % 1000, // number between 0 and 1000, based on the id
             $width
         );
