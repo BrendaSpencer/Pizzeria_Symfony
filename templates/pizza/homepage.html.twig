@@ -3,29 +3,36 @@
 {% block title %}Choose your favorite pizza | {{ parent() }}{% endblock %}
 
 {% block body %}
-<div class="container">
-    <h1 class="d-inline me-3">{{ title }}</h1> <i class="fas fa-edit"></i>
+<main class="container ">
     <div class="row mt-5">
-        <div class="col-12 col-md-8 ps-5">
-            <h2 class="mb-4">10 Pizzas to choose from!</h2>
+        <div class="col-12 col-md-8 mx-auto">
+            <h2 class="mb-4">Menu</h2>
             {% for pizza in pizzas %}
-          
-                <div class="d-flex mb-3">
-                  
-                   <img class="m-4" src="{{ pizza.getImageUrl(100) }}" alt="Mix album cover">
-                  
-                    <span class="pizza-details">{{ pizza.name }} - {{ pizza.description }} - {{ pizza.price }}</span>
-                    <a href="#">
-                        <i class="fas fa-bars mx-3"></i>
-                    </a>
-                    <a href="#">
-                        <i class="fas fa-times"></i>
-                    </a>
+                <div class="d-flex mb-3 card opacity">
+                   <div class="row g-0">
+                        <div class="col-md-4">
+                            <img class="img-fluid rounded-start" src="{{ pizza.getImageUrl(100) }}" alt="Mix album cover">
+                        </div>
+                    <div class="col-md-8">
+                        <div class="card-body h-75">
+                            <h5 class="card-title ">{{ pizza.name }}</h5>
+                            <p class="card-text"> {{ pizza.description }}</p>
+                            
+                        </div>
+                             <div class="card-footer text-end h-25">
+                               € {{ pizza.price }}
+                                <a href="#">
+                                    <i class="fa fa-cart-plus mx-3 fs-5 green"></i>
+                                </a>
+                            </div>  
+                      
+                    </div>
+                </div>
                 </div>
            
             {% endfor %}
             
         </div>
     </div>
-</div>
+</main>
 {% endblock %}
