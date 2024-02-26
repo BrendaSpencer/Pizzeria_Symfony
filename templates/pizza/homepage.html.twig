@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Choose your favorite pizza | {{ parent() }}{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1 class="d-inline me-3">{{ title }}</h1> <i class="fas fa-edit"></i>
+    <div class="row mt-5">
+        <div class="col-12 col-md-8 ps-5">
+            <h2 class="mb-4">10 Pizzas to choose from!</h2>
+            {% for pizza in pizzas %}
+          
+                <div class="d-flex mb-3">
+                  
+                   <img class="m-4" src="{{ pizza.getImageUrl(100) }}" alt="Mix album cover">
+                  
+                    <span class="pizza-details">{{ pizza.name }} - {{ pizza.description }} - {{ pizza.price }}</span>
+                    <a href="#">
+                        <i class="fas fa-bars mx-3"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fas fa-times"></i>
+                    </a>
+                </div>
+           
+            {% endfor %}
+            
+        </div>
+    </div>
+</div>
+{% endblock %}
